@@ -1,0 +1,56 @@
+{
+    "name": "Clicker",
+    "maps": [
+        {
+            "name": "Clicker",
+            "id": "20363a45-1313-49b8-aa0f-66e852894500",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "555ea4f2-81bf-44fa-acc0-c7e6acf9504b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c74b83e3-7ed3-41fd-b617-f225fecc7c86",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e54d98d7-da12-4cbc-93fd-88ca67ea7891",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ae1ea88-362b-44b5-80b3-0fedc4690f38",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
