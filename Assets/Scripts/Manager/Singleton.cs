@@ -8,18 +8,19 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         get
         {
-            if (_instance == null)
+            if (!_instance)
             {
-                _instance = (T)FindObjectOfType(typeof(T));
+                _instance = FindObjectOfType<T>();
 
-                if (_instance == null)
+                if (!_instance)
                 {
                     GameObject singletonObject = new GameObject();
                     _instance = singletonObject.AddComponent<T>();
+                    singletonObject.name = typeof(T).Name;
                 }
                 else
                 {
-                    Destroy(_instance);
+                    Destroy(((MonoBehaviour)_instance).gameObject);
                 }
             }
 
@@ -29,14 +30,24 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     public void Awake()
     {
-        DontDestroyOnLoad(_instance);
+        if (!_instance)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            if (_instance != this)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     public virtual void Release()
     {
-        if (_instance == null) return;
+        if (!_instance) return;
 
-        if (_instance.gameObject) Destroy(_instance.gameObject);
+        if (_instance) Destroy(_instance.gameObject);
 
         _instance = null;
     }
