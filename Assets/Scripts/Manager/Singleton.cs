@@ -17,10 +17,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                     GameObject singletonObject = new GameObject();
                     _instance = singletonObject.AddComponent<T>();
                     singletonObject.name = typeof(T).Name;
+                    DontDestroyOnLoad(singletonObject);
                 }
                 else
                 {
-                    Destroy(((MonoBehaviour)_instance).gameObject);
+                    Destroy(_instance.gameObject);
                 }
             }
 

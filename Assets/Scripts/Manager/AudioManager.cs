@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
-    // Start is called before the first frame update
-    void Start()
+    private AudioSource _audioSource;
+    private AudioClip[] _audioClips;
+
+    private void Awake()
     {
-        
+        this.AddComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
+        _audioClips = Resources.LoadAll<AudioClip>("celestial tree sounds");
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        _audioSource.clip = _audioClips[3];
+        _audioSource.volume = 0.1f;
+        _audioSource.Play();
     }
 }
